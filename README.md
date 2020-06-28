@@ -22,8 +22,8 @@ SO THAT I can plan a trip accordingly
 * click on a city in the search history to again presented with current and future conditions for that city
 * open the weather dashboard to presented with the last searched city forecast
 ## Tech and Features Used
-Open weather current & 5 day forecast API's: https://openweathermap.org/api
-JQuery: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
-Bootstrap: https://getbootstrap.com/
-Moment.js: https://momentjs.com/
-Font Awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+* Open weather current & 5 day forecast API's: https://openweathermap.org/api
+* JQuery: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
+* Bootstrap: https://getbootstrap.com/
+* Moment.js: https://momentjs.com/
+* Font Awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
