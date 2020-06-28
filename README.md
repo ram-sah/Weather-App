@@ -18,3 +18,8 @@ SO THAT I can plan a trip accordingly
 * view future weather conditions for that city to presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 * click on a city in the search history to again presented with current and future conditions for that city
 * open the weather dashboard to presented with the last searched city forecast
+## Tech and Features Used
+* Bootstrap
+* Javascript
+* JQuery
+* Open Weather API
