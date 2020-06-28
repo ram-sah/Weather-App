@@ -1,0 +1,21 @@
+/* Header  */
+.navbar-brand {   
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;    
+    line-height: inherit;
+    font-size: 2em;
+}
+/* Search button color */
+.btn-primary {
+    color: #fff;
+    background-color: #7b141e;    
+}
+
+/* footer  */
+
+.footer {
+    background-color: #414447;
+   
+}
+
