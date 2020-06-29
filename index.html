@@ -8,15 +8,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/styles.css">
+    <link rel="stylesheet" type="text/css" href="./Assets/styles.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Weather Dashboard</title>
 </head>
 
 <body>
     <!-- Header Weather Dashboard  -->
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1 w-100 text-center">Weather Dashboard</span>
+    <nav class="navbar header-text">
+        <!-- <h1 class="header-text">Weather Dashboard</h1> -->
+        <span class="navbar-brand mb-0 h1 w-100 text-center"><h1>Weather Dashboard</h1> 
+        <p id="currentDay" class="text-center"></p></span>
     </nav>
+
     <!-- Main Content Container -->
     <div class="container">
         <!-- Main Content Row -->
@@ -35,9 +41,23 @@
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear History</button>
+                    <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
                     <!--Searched City List -->
-                    <form id="history"></form>
+                    <form id="history">
+                        <table class="table table-light border">
+                            <tbody>
+                              <tr class="border" id="row0"></tr>
+                              <tr class="border" id="row1"></tr>
+                              <tr class="border" id="row2"></tr>
+                              <tr class="border" id="row3"></tr>
+                              <tr class="border" id="row4"></tr>
+                              <tr class="border" id="row5"></tr>
+                              <tr class="border" id="row6"></tr>
+                              <tr class="border" id="row7"></tr>
+                              <tr class="border" id="row8"></tr>
+                              <tr class="border" id="row9"></tr>        
+                          </table>
+                    </form>
             </div>
             <div class="col-8">
                 <div class="row mr-0">
@@ -46,13 +66,16 @@
 
                             <div class="col-12">
                                 <span id="city-name" class="city-name align-middle"></span>
-                                <img id="current-pic" src="placeholder" alt="">
+                                <!-- <img id="current-pic" src="placeholder" alt=""> -->
                             </div>
                         </div>
                         <div class="row">
                             <!-- Weather Information Column -->
-                            <div class="col-12">
+                            <div class="col-12 box">
+                                <div class="col-md-2"><img id="weather-icon" height="auto" width="auto"></div>
+                                <p><h3>City Name:</h3></p>
                                 <p id="temperature"></p>
+                                
                             </div>
                         </div>
                     </div>
@@ -69,11 +92,11 @@
             </div>
         </div>
     </div>
-    <footer class="footer mt-auto py-3 text-center">
-        <div class="container">
-            <span class="text-muted">&copy; Copyright: <a> Ram </a></span>
-        </div>
-    </footer>
+    <nav class="fixed-bottom footer">       
+        <div class="footer-text">&copy; Copyright-<a href="https://ram-sah.github.io/Weather-Dashboard">Ram-Sah</a></div>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- <script src="./Assets/script.js" type="text/javascript"></script> -->
     <script src="./Assets/script.js" type="text/javascript"></script>
 </body>
 

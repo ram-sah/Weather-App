@@ -1,21 +1,62 @@
-/* Header  */
-.navbar-brand {   
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;    
-    line-height: inherit;
-    font-size: 2em;
+/* background */
+body{
+    background-image: url("./images.jpg");
+    -webkit-background-size: cover;
+    background-repeat: no-repeat ;
+    background-attachment: fixed;
 }
+/* Header text */
+.header-text {
+    font-size:3rem;  
+    line-height: 1.2;
+    color: #000000;
+   
+  }  
+/* navbar styles */
+.navbar { 
+  background-color:  #666;  
+  color: #b6d7e2;  
+  padding-bottom: 0;
+  border-bottom: solid;
+  border-bottom-color: #ccc;
+  width: 100%;
+  text-align: center;
+  height: 10%;
+}
+
 /* Search button color */
-.btn-primary {
+.btn {
     color: #fff;
     background-color: #7b141e;    
 }
-
-/* footer  */
-
+/* Current Day Schedular ID */
+#currentDay{
+    padding: 0px;
+    font-size: 20px;
+    color: linen;
+    text-align: center;
+    margin: 0em;
+  }
 .footer {
-    background-color: #414447;
-   
-}
+    background-color: #666;   
+    height: 7%;    
+    border-top: solid;
+    border-top-color: #856404;  
+    border-top-width: 5px;
+    text-align: center; 
+  }
 
+  .footer-text{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    color:white;
+  }
+   .col-12 .box {   
+    background:whitesmoke;
+    border-radius: 12px;
+}
+.box {
+    background:whitesmoke;
+    border-radius: 12px;
+}
