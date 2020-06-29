@@ -52,15 +52,6 @@ $(document).ready(function () {
     })
 })
 
-// function fiveDayForecast() {
-//     var city;
-//     var forecast = your API call. make sure ti include city in it.
-//     $.ajax({
-//     type: "GET",
-//     url: forecast
-//     }).then(function(response) {
-//     //then just write the code to append it to your html
-//     }
 
 $("#clear-history").on("click", function (event) {
     $("#temperature").empty();
