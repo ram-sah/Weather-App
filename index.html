@@ -33,33 +33,34 @@
             <div class="col-4 bg-light">
                 <!-- Search Form with Button -->
                 <p class="search-header my-1">
-                <h3>Search for a City</p>
-                    <div class="input-group mb-3">
-                        <input id="city-input" type="text" class="form-control" placeholder="Enter City Name"
-                            aria-label="Enter city name">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" id="search-button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
+                <h3>Search for a City</h3>
+                </p>
+                <div class="input-group mb-3">
+                    <input id="city-input" type="text" class="form-control" placeholder="Enter City Name"
+                        aria-label="Enter city name">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
-                    <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
-                    <!--Searched City List -->
-                    <form id="history">
-                        <table class="table table-light border">
-                            <tbody>
-                                <tr class="border" id="row0"></tr>
-                                <tr class="border" id="row1"></tr>
-                                <tr class="border" id="row2"></tr>
-                                <tr class="border" id="row3"></tr>
-                                <tr class="border" id="row4"></tr>
-                                <tr class="border" id="row5"></tr>
-                                <tr class="border" id="row6"></tr>
-                                <tr class="border" id="row7"></tr>
-                                <tr class="border" id="row8"></tr>
-                                <tr class="border" id="row9"></tr>
-                        </table>
-                    </form>
+                </div>
+                <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
+                <!--Searched City List -->
+
+                <table class="table table-light border">
+                    <tbody id="clearTable">
+                        <!-- <tr class="border" id="row0"></tr>
+                            <tr class="border" id="row1"></tr>
+                            <tr class="border" id="row2"></tr>
+                            <tr class="border" id="row3"></tr>
+                            <tr class="border" id="row4"></tr>
+                            <tr class="border" id="row5"></tr>
+                            <tr class="border" id="row6"></tr>
+                            <tr class="border" id="row7"></tr>
+                            <tr class="border" id="row8"></tr>
+                            <tr class="border" id="row9"></tr> -->
+                    </tbody>
+                </table>
             </div>
             <div class="col-8">
                 <div class="row mr-0">
@@ -74,15 +75,16 @@
                         <div class="row">
                             <!-- Weather Information Column -->
                             <div class="col-12 box">
-                                <div class="col-md-2"><img id="weather-icon" height="auto" width="auto"></div>
-                                <p>
-                                <h3>City Name:</h3>
-                                </p>
-                                <p id="temperature"></p>
+                                <div id="cityList"><p><h3>City Name:</h3></p></div>
+                                <div class="col-md-4"><img id="weather-icon" height="auto" width="auto"></div>
+                               
+                               
+                                <!-- <p id="temperature"></p>
                                 <span id="temp-data"></span><br>
                                 <span id="hum-data"></span><br>
                                 <span id="wind-data"></span><br>
-                                <span id="uvi-data"></span><br>
+                                <span id="uvi-data"></span><br> -->
+                                
                             </div>
                         </div>
                     </div>

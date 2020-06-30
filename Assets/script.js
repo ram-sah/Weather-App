@@ -4,6 +4,24 @@ $(document).ready(function () {
     const momentTime = moment().format('MMMM Do YYYY || h:mm a');
     $('#currentDay').text(momentTime);
     
+    // read localstorage and if existing then show the history info
+    var historyArray = localStorage.getItem("weather")
+    if (historyArray) {
+        historyArray = JSON.parse(historyArray)
+    }
+    else {
+        historyArray = []
+    }
+    showHistory() 
+
+    //Show the History 
+    function showHistory () {
+        $("#clearTable").empty()
+        for (var i = 0; i< historyArray.length; i++){
+            console.log(historyArray[i])
+            $("#clearTable").prepend("<tr><td>" + historyArray[i] + "</td></tr>")
+        }
+    }
 
     // let showValuesOnPage = (() => {
     //     let searchString = cityName + ', ' + countryCode;
@@ -23,6 +41,11 @@ $(document).ready(function () {
         // Preventing the button from trying to submit the form
         event.preventDefault();
         var city = $("#city-input").val();
+        if (historyArray.indexOf(city) === -1){
+            historyArray.push(city)
+            localStorage.setItem("weather", JSON.stringify(historyArray))
+            showHistory();
+        }
 
         // API key for weather database"
         var APIkey = '0ec949b8b13f2ad5d8653cd84a541bde';
@@ -36,16 +59,17 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             // console.log(response);
-            // console.log("City Name:", response.name);
-            // console.log("temperature :", response.main.temp, "F");
-            // console.log("Humidity :", response.main.humidity, "%");
-            // console.log("Wind Speed:", response.wind.speed, "MPH");
-            var cityDiv = $("<div>").append($("<h4>" + response.name + "</h4>"));           
+            
+            var cityDiv = $("<div>").append($("<h1>" + response.name + "</h1>"));           
+            var image = $("img").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
+
+
             var p1 = $("<p>").text("Temperature : " + response.main.temp + " `F");
             var p2 = $("<p>").text("Humidity : " + response.main.humidity + " %");
             var p3 = $("<p>").text("Wind Speed : " + response.wind.speed + " MPH");
-            cityDiv.append(p1).append(p2).append(p3);
-            $("#temperature").append(cityDiv);
+            cityDiv.append(image).append(p1).append(p2).append(p3);
+            $("#cityList").empty();
+            $("#cityList").append(cityDiv);
             // $("#history").prepend(div);
         });
 
