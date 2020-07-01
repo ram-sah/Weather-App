@@ -12,7 +12,7 @@ $(document).ready(function () {
     else {
         historyArray = []
     }
-    showHistory() 
+    // showHistory(); 
 
     //Show the History 
     function showHistory () {
@@ -20,22 +20,8 @@ $(document).ready(function () {
         for (var i = 0; i< historyArray.length; i++){
             console.log(historyArray[i])
             $("#clearTable").prepend("<tr><td>" + historyArray[i] + "</td></tr>")
-        }
     }
-
-    // let showValuesOnPage = (() => {
-    //     let searchString = cityName + ', ' + countryCode;
-    //     $('#city-name').text(searchString + ' (' + momentTime(Date.now()) + ')');
-    //     addToSearchHistory(searchString, Date.now());
-    //     renderSearchHistory();
-    //     $('#weather-icon').attr('src', iconURL + iconName + '.png')
-    //     $('#temp-data').text('Temperature: ' +
-    //         (tempInK - 273.15).toFixed(2) + ' ' + String.fromCharCode(176) + 'C (' +
-    //         ((tempInK - 273.15) * 9 / 5 + 32).toFixed(2) + ' ' + String.fromCharCode(176) + 'F)');
-    //     $('#hum-data').text('Humidity: ' + humidity + '%');
-    //     $('#wind-data').text('Wind Speed: ' + windSpeed + ' MPH');
-    //     $('#uvi-data').text('UV Index: ' + uvIndex);
-    // });
+}
 
     $('#search-button').on("click", function (event) {
         // Preventing the button from trying to submit the form
@@ -44,19 +30,22 @@ $(document).ready(function () {
         if (historyArray.indexOf(city) === -1){
             historyArray.push(city)
             localStorage.setItem("weather", JSON.stringify(historyArray))
+            
+        }       
             showHistory();
-        }
-
+     
+       
         // API key for weather database"
         var APIkey = '0ec949b8b13f2ad5d8653cd84a541bde';
         // Here we are building the URL we need to query the database
         var query = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey;
-        var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
+       
 
         // We then created an AJAX call
         $.ajax({
             url: query,
             method: "GET"
+           
         }).then(function (response) {
             // console.log(response);
             
@@ -72,12 +61,49 @@ $(document).ready(function () {
             $("#cityList").append(cityDiv);
             // $("#history").prepend(div);
         });
+            
+        //Five Days forcast 
+            
+            var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
+        
+        $.ajax({
+            url: fiveDay,
+            method: "GET"
+           
+        }).then(function (response) {
+            const fiveDiv = $("<div>");
+            for (var i= 0; i < fiveDiv.length; i++){
+                console.log(response)
+                // const forecastIndex = "";
+                // const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+                // const forecastDay = forecastDate.getDate();
+                // const forecastMonth = forecastDate.getMonth() + 1;
+                // const forecastYear = forecastDate.getFullYear();
+               
+                // forecastDateEl = $("<p>").setAttribute("class","mt-3 mb-0 forecast-date");
+                // forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+                // fiveDiv[i].append(forecastDateEl);
 
+                // const forecastWeatherEl = ("<img>");
+                // forecastWeatherEl.setAttribute("src","https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
+                // forecastWeatherEl.setAttribute("alt",response.data.list[forecastIndex].weather[0].description);
+                // fiveDiv[i].append(forecastWeatherEl);
+                // const forecastTempEl = $("<p>");
+                // forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
+                // fiveDiv[i].append(forecastTempEl);
+                // const forecastHumidityEl = $("<p>");
+                // forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
+                // fiveDiv[i].append(forecastHumidityEl);
+                // $("#5days").append(fiveDiv);
+            }
+
+        })
     })
 })
 
 
 $("#clear-history").on("click", function (event) {
-    $("#temperature").empty();
+    $("#clearTable").empty();
+    
 });
 
