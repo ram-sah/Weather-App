@@ -55,8 +55,25 @@ body{
    .col-12 .box {   
     background:whitesmoke;
     border-radius: 12px;
+    width: 760px;
+    margin-top: -2px;
 }
 .box {
     background:whitesmoke;
     border-radius: 12px;
 }
+
+.temperatureFont {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.forecastBgrd {
+  background: rgb(50,152,220);
+  background: linear-gradient(0deg, rgba(50,152,220,1) 0%, rgba(95,191,255,1) 88%);
+}
+
+.bg-light {
+  margin-top: 15px;
+  border-radius: 10px;
+}
+

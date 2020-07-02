@@ -1,109 +1,128 @@
+$(window).on('load', function () {
+    currentLocation();
+    checkLocalStorage();
+});
 
-$(document).ready(function () {
-    //get times moment     
-    const momentTime = moment().format('MMMM Do YYYY || h:mm a');
-    $('#currentDay').text(momentTime);
+var APIKey = "09e0d7e534e41ce68ba5f2577fa5f760";
+var q = "";
+var now = moment();
+var currentDate = now.format('MMMM Do YYYY || h:mm a');
+//var currentDay = now.format("DD");
+
+$("#currentDay").text(currentDate);
+
+$("#search-button").on("click", function (event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
     
-    // read localstorage and if existing then show the history info
-    var historyArray = localStorage.getItem("weather")
-    if (historyArray) {
-        historyArray = JSON.parse(historyArray)
-    }
-    else {
-        historyArray = []
-    }
-    // showHistory(); 
+    q = $("#city-input").val();
+    getWeather(q);
+    createRecentSearchBtn(q);
+    saveToLocalStorage(q);
 
-    //Show the History 
-    function showHistory () {
-        $("#clearTable").empty()
-        for (var i = 0; i< historyArray.length; i++){
-            console.log(historyArray[i])
-            $("#clearTable").prepend("<tr><td>" + historyArray[i] + "</td></tr>")
-    }
-}
+});
 
-    $('#search-button').on("click", function (event) {
-        // Preventing the button from trying to submit the form
-        event.preventDefault();
-        var city = $("#city-input").val();
-        if (historyArray.indexOf(city) === -1){
-            historyArray.push(city)
-            localStorage.setItem("weather", JSON.stringify(historyArray))
-            
-        }       
-            showHistory();
-     
-       
-        // API key for weather database"
-        var APIkey = '0ec949b8b13f2ad5d8653cd84a541bde';
-        // Here we are building the URL we need to query the database
-        var query = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey;
-       
+function createRecentSearchBtn(q) {
+    var newBtn = $('<button>');
+    newBtn.addClass("button is-small recentSearch");
+    newBtn.text(q);
+    $("#historyList").prepend(newBtn);
+    $(".recentSearch").on("click", function () {
+        var newQ = $(this).text();
+        getWeather(newQ);
+    });
+};
 
-        // We then created an AJAX call
-        $.ajax({
-            url: query,
-            method: "GET"
-           
-        }).then(function (response) {
-            // console.log(response);
-            
-            var cityDiv = $("<div>").append($("<h1>" + response.name + "</h1>"));           
-            var image = $("img").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
+function getWeather(q) {
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + q + "&units=imperial&appid=" + APIKey;
+    $.ajax({ // gets the current weather info
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+        var cityMain = $("<div col-12>").append($("<h1>" + response.name + "</h1>"));
+        var image = $("img").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
+        var degreeMain = $("<p>").text("Temperature : " + response.main.temp + " °F ");
+        var humidityMain = $("<p>").text("Humidity : " + response.main.humidity + "%");
+        var windMain = $("<p>").text("Wind Speed : " + response.wind.speed + "MPH");
+        var iconMain = $("<p>").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
+        var uvIndexcoord = ("&lat=" + response.coord.lat + "&lon=" + response.coord.lon);
+        var cityId = response.id;
+        displayUVindex(uvIndexcoord);
+        displayForecast(cityId);
+        cityMain.append(image).append(degreeMain).append(humidityMain).append(windMain).append(iconMain);
+        $("#cityList").empty();
+        $("#cityList").append(cityMain);
+    });
+};
 
-
-            var p1 = $("<p>").text("Temperature : " + response.main.temp + " `F");
-            var p2 = $("<p>").text("Humidity : " + response.main.humidity + " %");
-            var p3 = $("<p>").text("Wind Speed : " + response.wind.speed + " MPH");
-            cityDiv.append(image).append(p1).append(p2).append(p3);
-            $("#cityList").empty();
-            $("#cityList").append(cityDiv);
-            // $("#history").prepend(div);
-        });
-            
-        //Five Days forcast 
-            
-            var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
-        
-        $.ajax({
-            url: fiveDay,
-            method: "GET"
-           
-        }).then(function (response) {
-            const fiveDiv = $("<div>");
-            for (var i= 0; i < fiveDiv.length; i++){
-                console.log(response)
-                // const forecastIndex = "";
-                // const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
-                // const forecastDay = forecastDate.getDate();
-                // const forecastMonth = forecastDate.getMonth() + 1;
-                // const forecastYear = forecastDate.getFullYear();
-               
-                // forecastDateEl = $("<p>").setAttribute("class","mt-3 mb-0 forecast-date");
-                // forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
-                // fiveDiv[i].append(forecastDateEl);
-
-                // const forecastWeatherEl = ("<img>");
-                // forecastWeatherEl.setAttribute("src","https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
-                // forecastWeatherEl.setAttribute("alt",response.data.list[forecastIndex].weather[0].description);
-                // fiveDiv[i].append(forecastWeatherEl);
-                // const forecastTempEl = $("<p>");
-                // forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
-                // fiveDiv[i].append(forecastTempEl);
-                // const forecastHumidityEl = $("<p>");
-                // forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
-                // fiveDiv[i].append(forecastHumidityEl);
-                // $("#5days").append(fiveDiv);
-            }
-
-        })
+function displayUVindex(uv) {
+    $.ajax({ // gets the UV index info
+        url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + uv,
+        method: "GET"
     })
-})
+        .then(function (response) {
+            var uvIndexMain = $("<p>").text(response.value);
+            $("#cityList").append(uvIndexMain);
+        });
+};
 
+function displayForecast(c) {
+    $.ajax({ // gets the 5 day forecast API
+        url: "https://api.openweathermap.org/data/2.5/forecast?id=" + c + "&units=imperial&APPID=" + APIKey,
+        method: "GET"
+    }).then(function (response) {
+        //  Parse response to display forecast for next 5 days underneath current conditions
+        var forecastEls = $(".forecast");
+        //var counter = 0;
+        for (var i = 0; i < forecastEls.length; i++) {
+            console.log(response);
+
+
+
+
+        }
+    });
+};
+
+function currentLocation() {
+    $.ajax({
+        url: "https://freegeoip.app/json/",
+        method: "GET"
+    })
+        .then(function (response) {
+            q = response.city || 'exton';
+            console.log(q);
+            getWeather(q);
+        });
+};
+
+function checkLocalStorage() {
+    var storedData = localStorage.getItem('queries');
+    var dataArray = [];
+    if (!storedData) {
+        console.log("no data stored")
+    } else {
+        storedData.trim();
+        dataArray = storedData.split(",");
+        for (var i = 0; i < dataArray.length; i++) {
+            createRecentSearchBtn(dataArray[i]);
+        }
+    };
+};
+
+function saveToLocalStorage(q) {
+    var data = localStorage.getItem('queries');
+    if (data) {
+        data = data + "," + q;
+        localStorage.setItem('queries', data);
+    } else {
+        data = q;
+        localStorage.setItem('queries', data);
+    };
+};
 
 $("#clear-history").on("click", function (event) {
-    $("#clearTable").empty();
-    
+    $("#historyList").empty();
 });
 

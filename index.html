@@ -33,38 +33,30 @@
             <div class="col-4 bg-light">
                 <!-- Search Form with Button -->
                 <p class="search-header my-1">
-                <h3>Search for a City</h3>
-                </p>
-                <div class="input-group mb-3">
-                    <input id="city-input" type="text" class="form-control" placeholder="Enter City Name"
-                        aria-label="Enter city name">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="search-button">
-                            <i class="fas fa-search"></i>
-                        </button>
+                <h3>Search for a City</p>
+                    <div class="input-group mb-3">
+                        <input id="city-input" type="text" class="form-control" placeholder="Enter City Name"
+                            aria-label="Enter city name">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
-                <!--Searched City List -->
+                    <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
+                    <!--Searched City List -->
+                    <h6>Recently searched cities:</h6>
+                    <div class="is-hidden" id="historyList">
 
-                <table class="table table-light border">
-                    <tbody id="clearTable">
-                        <!-- <tr class="border" id="row0"></tr>
-                            <tr class="border" id="row1"></tr>
-                            <tr class="border" id="row2"></tr>
-                            <tr class="border" id="row3"></tr>
-                            <tr class="border" id="row4"></tr>
-                            <tr class="border" id="row5"></tr>
-                            <tr class="border" id="row6"></tr>
-                            <tr class="border" id="row7"></tr>
-                            <tr class="border" id="row8"></tr>
-                            <tr class="border" id="row9"></tr> -->
-                    </tbody>
-                </table>
+                        <table class="table table-light border">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
             </div>
             <div class="col-8">
                 <div class="row mr-0">
-                    <div class="col-12 border border-dark m-3 rounded">
+                    <div class="col-12 border  m-3 rounded">
                         <div class="row">
 
                             <div class="col-12">
@@ -74,39 +66,47 @@
                         </div>
                         <div class="row">
                             <!-- Weather Information Column -->
-                            <div class="col-12 box">
-                                <div id="cityList"><p><h3>City Name:</h3></p></div>
-                                <div class="col-md-4"><img id="weather-icon" height="auto" width="auto"></div>
-                               
-                               
-                                <!-- <p id="temperature"></p>
-                                <span id="temp-data"></span><br>
-                                <span id="hum-data"></span><br>
-                                <span id="wind-data"></span><br>
-                                <span id="uvi-data"></span><br> -->
-                                
+                            <div class="row">
+                                <!-- Weather Information Column -->
+                                <div class="col-12 box">
+                                    <div id="cityList">
+                                        <p>
+                                        <h3>City Name:</h3>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4"><img id="weather-icon" height="auto" width="auto"></div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-5 list">
                         <h3>5-Day Forecast</h3>
                     </div>
                 </div>
                 <!-- 5 Days Forcast list -->
-                <div class="row" id="5days" >
-
+                <div class="row">
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
     <nav class="fixed-bottom footer">
-        <div class="footer-text">&copy; Copyright-<a href="https://github.com/ram-sah/Weather-Dashboard">Ram-Sah</a>
+        <div class="footer-text">&copy; Copyright-<a href="https://ram-sah.github.io/Weather-Dashboard">Ram-Sah</a>
         </div>
     </nav>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- <script src="./Assets/script.js" type="text/javascript"></script> -->
+    
     <script src="./Assets/script.js" type="text/javascript"></script>
 </body>
 
