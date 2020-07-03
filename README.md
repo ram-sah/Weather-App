@@ -58,5 +58,6 @@ SO THAT I can plan a trip accordingly
 * esprima Syntax Validator 
 
 # Demo
+![weather-dashboard](https://user-images.githubusercontent.com/64625123/86446643-35d4f100-bce2-11ea-9154-23067137069a.gif)
 
 
