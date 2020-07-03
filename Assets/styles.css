@@ -37,6 +37,7 @@ body{
     text-align: center;
     margin: 0em;
   }
+  /* footer nar bar  */
 .footer {
     background-color: #666;   
     height: 7%;    
@@ -52,29 +53,37 @@ body{
     font-size: 15px;
     color:white;
   }
+  /* for temperature data display body area */
    .col-12 .box {   
     background:whitesmoke;
     border-radius: 12px;
     width: 760px;
     margin-top: -2px;
 }
-.box {
-    background:whitesmoke;
-    border-radius: 12px;
-}
-
+/* temperature font */
 .temperatureFont {
   font-family: 'Quicksand', sans-serif;
 }
-
+/* 5 Day forecaste colon  */
 .forecastBgrd {
   background: rgb(50,152,220);
   background: linear-gradient(0deg, rgba(50,152,220,1) 0%, rgba(95,191,255,1) 88%);
 }
-
+/* temperature display box  */
 .bg-light {
   margin-top: 15px;
   border-radius: 10px;
   
+}
+/* forecaste Image size */
+.imgsize {
+  width: 100px;
+  float: right;
+  margin-right: 400px;
+
+}
+/* searched city button  */
+li{
+  margin-bottom: 10px;
 }
 
