@@ -17,9 +17,9 @@
 
 <body>
     <!-- Header Weather Dashboard  -->
-    <nav class="navbar header-text">
+    <nav class="nav-bar ">
         <!-- <h1 class="header-text">Weather Dashboard</h1> -->
-        <span class="navbar-brand mb-0 h1 w-100 text-center">
+        <span class="nav-bar">
             <h1>Weather Dashboard</h1>
             <p id="currentDay" class="text-center"></p>
         </span>
@@ -46,13 +46,9 @@
                     <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
                     <!--Searched City List -->
                     <h6>Recently searched cities:</h6>
-                    <div class="is-hidden" id="historyList">
-
-                        <table class="table table-light border">
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                    <!-- added ul with class to remove unordered list style from button -->
+                    <ul class="is-hidden" style='list-style:none' id="historyList">
+                    </ul>
             </div>
             <div class="col-8">
                 <div class="row mr-0">
@@ -63,7 +59,7 @@
                                 <span id="city-name" class="city-name align-middle"></span>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row"> -->
                             <!-- Weather Information Column -->
                             <div class="row">
                                 <!-- Weather Information Column -->
@@ -77,11 +73,11 @@
 
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 list">
+                    <div class="col-8 list">
                         <h3>5-Day Forecast</h3>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
-# Week-6: HOME-WORK:
+
+# Week-6: HOME-WORK: 
 * By: Ram Sah - https://ram-sah.github.io/Weather-Dashboard
 
 # Server-Side APIs: Weather Dashboard
@@ -28,3 +29,34 @@ SO THAT I can plan a trip accordingly
 * Moment.js: https://momentjs.com/
 * Font Awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 * Current Location: https://freegeoip.app/json/
+
+# How can we use Weather Dashboard to Plan for travelling?
+
+* This project has script features of:
+* Moment.js for local time, current time with weather Dashboard
+* Appended text to HTML for hour time
+* An event listener for the search buttons and save to local storage
+### This project features responsive design using a Bootstrap layout Has responsive layout for:
+* Small devices (landscape phones, 320px and up)  
+* Large devices (desktops, 992px and up) 
+
+* To Execute File: Open in browser
+
+# Features:
+* Index.html
+* Styles.css
+* script.js
+* Ajax
+* Contains:  Variables, including arrays and time conversion 
+* Event listeners 
+* if/else if statements 
+* For Loops 
+* Functions 
+* Local Storage set and get
+### Code Validation:
+* These use W3C Code Validators for HTML and CSS
+* esprima Syntax Validator 
+
+# Demo
+
+

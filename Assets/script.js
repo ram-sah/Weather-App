@@ -38,7 +38,7 @@ function createRecentSearchBtn(q) {
         var newQ = $(this).text();
         getWeather(newQ);
     });
-};
+}
 //Function to get weather details 
 function getWeather(q) {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + q + "&units=imperial&appid=" + APIKey;
@@ -48,6 +48,9 @@ function getWeather(q) {
         method: "GET"
     }).then(function (response) {
         console.log(response)
+        //to avoid repeating city information on button click 
+        $(".cityList").empty()
+        $("#days").empty()
         var cityMain = $("<div col-12>").append($("<h1>" + response.name + "</h1>"));
         var image = $('<img class="imgsize">').attr('src', 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png');
         var degreeMain = $('<p>').text('Temperature : ' + response.main.temp + ' °F ');
@@ -79,7 +82,7 @@ function displayUVindex(uv) {
 function displayForecast(c) {
     $.ajax({ // gets the 5 day forecast API
         url: "https://api.openweathermap.org/data/2.5/forecast?id=" + c + "&units=imperial&APPID=" + APIKey,
-        method: "GET"
+        method: "GET",
     }).then(function (response) {
         //  Parse response to display forecast for next 5 days underneath current conditions
         var arrayList = response.list;
@@ -104,7 +107,7 @@ function displayForecast(c) {
 function currentLocation() {
     $.ajax({
         url: "https://freegeoip.app/json/",
-        method: "GET"
+        method: "GET",
     }).then(function (response) {
         q = response.city || 'exton';
         console.log(q);
@@ -117,14 +120,14 @@ function checkLocalStorage() {
     var storedData = localStorage.getItem('queries');
     var dataArray = [];
     if (!storedData) {
-        console.log("no data stored")
+        console.log("no data stored");
     } else {
         storedData.trim();
-        dataArray = storedData.split(",");
+        dataArray = storedData.split(',');
         for (var i = 0; i < dataArray.length; i++) {
             createRecentSearchBtn(dataArray[i]);
         }
-    };
+    }
 };
 // Function to Set data in Local storage
 function saveToLocalStorage(q) {

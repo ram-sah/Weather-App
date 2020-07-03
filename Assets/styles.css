@@ -39,7 +39,7 @@ body{
   }
   /* footer nar bar  */
 .footer {
-    background-color: #666;   
+    background-color:  salmon;   
     height: 7%;    
     border-top: solid;
     border-top-color: #856404;  
@@ -52,6 +52,7 @@ body{
     text-align: center;
     font-size: 15px;
     color:white;
+    padding: 12px;
   }
   /* for temperature data display body area */
    .col-12 .box {   
@@ -79,11 +80,55 @@ body{
 .imgsize {
   width: 100px;
   float: right;
-  margin-right: 400px;
+  margin-right: 60%;
 
 }
 /* searched city button  */
 li{
   margin-bottom: 10px;
+  margin-left: -40px;
 }
-
+.nav-bar{
+  text-align: center;
+  background-color: salmon;
+}
+/*Large devices (desktops, 992px and up) */
+@media only screen and (max-width:992px) {
+  .navbar .header-text{       
+    padding-bottom: 0;
+    border-bottom: solid;   
+    width: 100%;
+    text-align: center;
+    height: 10%;
+  }
+  .footer {     
+    height: 7%;    
+    border-top: solid;      
+    border-top-width: 5px;
+    text-align: center; 
+  }
+  
+.h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+}
+/*Small devices (landscape phones, 320px and up)*/
+@media only screen and (max-width:320px) { 
+.col-12 .box {
+  width: 100%;
+}
+.container{
+  width: 100%;
+}
+.navbar .footer .col-4 .row .nav{
+  width: 100%;
+  height:auto;  
+}
+.header-text{
+  font-size: 16px;
+}
+.h1 {
+  font-size: 2rem;
+}
+}
