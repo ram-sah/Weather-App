@@ -21,7 +21,10 @@
         <!-- <h1 class="header-text">Weather Dashboard</h1> -->
         <span class="nav-bar">
             <h1>Weather Dashboard</h1>
-            <p id="currentDay" class="text-center"></p>
+            <div id="currentDay" class="text-center">
+
+
+            </div>
         </span>
     </nav>
 
@@ -32,23 +35,24 @@
             <!-- City Search Bar -->
             <div class="col-4 bg-light">
                 <!-- Search Form with Button -->
-                <p class="search-header my-1">
-                <h3>Search for a City</p>
-                    <div class="input-group mb-3">
-                        <input id="city-input" type="text" class="form-control" placeholder="Enter City Name"
-                            aria-label="Enter city name">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" id="search-button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
+                <div>
+                    <h3>Search for a City</h3>
+                </div>
+                <div class="input-group mb-3">
+                    <input id="city-input" type="text" class="form-control" placeholder="Enter City Name"
+                        aria-label="Enter city name">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
-                    <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
-                    <!--Searched City List -->
-                    <h6>Recently searched cities:</h6>
-                    <!-- added ul with class to remove unordered list style from button -->
-                    <ul class="is-hidden" style='list-style:none' id="historyList">
-                    </ul>
+                </div>
+                <button class="btn mb-3" type="button" id="clear-history">Clear History</button>
+                <!--Searched City List -->
+                <h6>Recently searched cities:</h6>
+                <!-- added ul with class to remove unordered list style from button -->
+                <ul class="is-hidden" style='list-style:none' id="historyList">
+                </ul>
             </div>
             <div class="col-8">
                 <div class="row mr-0">
@@ -59,20 +63,17 @@
                                 <span id="city-name" class="city-name align-middle"></span>
                             </div>
                         </div>
-                        <!-- <div class="row"> -->
+                        <!-- Weather Information Column -->
+                        <div class="row">
                             <!-- Weather Information Column -->
-                            <div class="row">
-                                <!-- Weather Information Column -->
-                                <div class="col-12 box">
-                                    <div id="cityList">
-                                        <p>
-                                        <h3>City Name:</h3>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-4"><img id="weather-icon" height="auto" width="auto"></div>
-
+                            <div class="col-12 box">
+                                <div id="cityList">
+                                    <h3>City Name:</h3>
+                                </div>
+                                <div class="col-md-4">                                   
                                 </div>
                             </div>
+                        </div>
                         <!-- </div> -->
                     </div>
                 </div>
@@ -93,7 +94,7 @@
     </nav>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-    <script src="./Assets/script.js" type="text/javascript"></script>
+    <script src="./Assets/script.js"></script>
 </body>
 
 </html>
