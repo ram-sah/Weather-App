@@ -27,3 +27,4 @@ SO THAT I can plan a trip accordingly
 * Bootstrap: https://getbootstrap.com/
 * Moment.js: https://momentjs.com/
 * Font Awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+* Current Location: https://freegeoip.app/json/
