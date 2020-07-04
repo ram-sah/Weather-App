@@ -145,7 +145,7 @@ function saveToLocalStorage(q) {
         createRecentSearchBtn(q);
     }
 }
-
+//added clear histor fuction to clear searched city list
 $("#clear-history").on("click", function (event) {
     $("#historyList").empty();
 });

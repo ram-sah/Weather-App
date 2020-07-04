@@ -13,21 +13,19 @@ body{
    
   }  
 /* navbar styles */
-.navbar { 
-  background-color:  #666;  
-  color: #b6d7e2;  
-  padding-bottom: 0;
-  border-bottom: solid;
-  border-bottom-color: #ccc;
-  width: 100%;
-  text-align: center;
-  height: 10%;
-}
 
+.nav-bar{
+  text-align: center;
+  background-color: salmon; 
+  border-bottom: solid;
+  border-bottom-color: #856404;  
+  border-bottom-width: 5px; 
+}
 /* Search button color */
 .btn {
-    color: #fff;
-    background-color: #7b141e;    
+  color: #fff;
+  background-color: #7b141e;
+
 }
 /* Current Day Schedular ID */
 #currentDay{
@@ -46,7 +44,7 @@ body{
     border-top-width: 5px;
     text-align: center; 
   }
-
+/* footer text */
   .footer-text{
     width: 100%;
     text-align: center;
@@ -65,16 +63,16 @@ body{
 .temperatureFont {
   font-family: 'Quicksand', sans-serif;
 }
-/* 5 Day forecaste colon  */
-.forecastBgrd {
-  background: rgb(50,152,220);
-  background: linear-gradient(0deg, rgba(50,152,220,1) 0%, rgba(95,191,255,1) 88%);
+/* for city searched box  */
+.bg-primary{
+  border-radius: 10px;
 }
 /* temperature display box  */
-.bg-light {
+.bg-light { 
   margin-top: 15px;
+  /* margin-left: 10px; */
   border-radius: 10px;
-  
+  margin-bottom: 17px;  
 }
 /* forecaste Image size */
 .imgsize {
@@ -88,10 +86,9 @@ li{
   margin-bottom: 10px;
   margin-left: -40px;
 }
-.nav-bar{
-  text-align: center;
-  background-color: salmon;
-}
+/* #clear-history{
+  overflow: auto;
+} */
 /*Large devices (desktops, 992px and up) */
 @media only screen and (max-width:992px) {
   .navbar .header-text{       
@@ -130,5 +127,8 @@ li{
 }
 .h1 {
   font-size: 2rem;
+}
+.bg-light { 
+  margin-left: 10px; 
 }
 }
