@@ -74,7 +74,7 @@ function displayUVindex(uv) {
         url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + uv,
         method: "GET"
     }).then(function (response) {
-        var uvIndexMain = $("<p>").text('UV-Index :' + response.value);
+        var uvIndexMain = $("<p>").text('UV-Index : ' + response.value);
         $("#cityList").append(uvIndexMain);
     });
 }
@@ -91,13 +91,14 @@ function displayForecast(c) {
                 console.log(arrayList[i]);
                 var cityMain = $('<div>');
                 cityMain.addClass('col forecast bg-primary text-white ml-3 mb-3 rounded>');
+                var date5 = $("<h5>").text(response.list[i].dt_txt.split(" ")[0]);
                 var image = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + arrayList[i].weather[0].icon + '.png');
                 var degreeMain = $('<p>').text('Temperature : ' + arrayList[i].main.temp + ' °F ');
                 var humidityMain = $('<p>').text('Humidity : ' + arrayList[i].main.humidity + '%');
                 var windMain = $('<p>').text('Wind Speed : ' + arrayList[i].wind.speed + 'MPH');
-                var iconMain = $('<p>').attr('src', 'https://openweathermap.org/img/wn/' +
-                    arrayList[i].weather[0].icon + '@2x.png');
-                cityMain.append(image).append(degreeMain).append(humidityMain).append(windMain).append(iconMain);
+                // var iconMain = $('<p>').attr('src', 'https://openweathermap.org/img/wn/' +
+                //     arrayList[i].weather[0].icon + '@2x.png');
+                cityMain.append(date5).append(image).append(degreeMain).append(humidityMain).append(windMain);
                 $('#days').append(cityMain);
             }
         }

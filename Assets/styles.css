@@ -31,9 +31,11 @@ body{
 #currentDay{
     padding: 0px;
     font-size: 20px;
-    color: linen;
+    font-weight: 700;
+    color: lime;
     text-align: center;
     margin: 0em;
+    
   }
   /* footer nar bar  */
 .footer {
@@ -58,6 +60,7 @@ body{
     border-radius: 12px;
     width: 760px;
     margin-top: -2px;
+    margin-left: -10px;
 }
 /* temperature font */
 .temperatureFont {
@@ -86,9 +89,6 @@ li{
   margin-bottom: 10px;
   margin-left: -40px;
 }
-/* #clear-history{
-  overflow: auto;
-} */
 /*Large devices (desktops, 992px and up) */
 @media only screen and (max-width:992px) {
   .navbar .header-text{       
@@ -104,11 +104,6 @@ li{
     border-top-width: 5px;
     text-align: center; 
   }
-  
-.h1 {
-  font-size: 2.5rem;
-  text-align: center;
-}
 }
 /*Small devices (landscape phones, 320px and up)*/
 @media only screen and (max-width:320px) { 
@@ -125,10 +120,7 @@ li{
 .header-text{
   font-size: 16px;
 }
-.h1 {
-  font-size: 2rem;
 }
-.bg-light { 
-  margin-left: 10px; 
-}
+#days{
+margin-left: -25px;
 }
