@@ -39,21 +39,34 @@ function createRecentSearchBtn(q) {
         getWeather(newQ);
     });
 }
+//converting temperature F to Celsius 
+function convertToC(fahrenheit) {
+    var fTempVal = fahrenheit;
+    var cTempVal = (fTempVal - 32) * (5 / 9);
+    var celcius = Math.round(cTempVal * 10) / 10;
+    return celcius;
+  }
+
 //Function to get weather details 
 function getWeather(q) {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + q + "&units=imperial&appid=" + APIKey;
     $.ajax({
         // gets the current weather info
         url: queryURL,
-        method: "GET"
+        method: "GET",
+        error: (err => { //If API through error then alert 
+            alert("Your city was not found. Check your spelling or enter a city code")
+            return;
+          })
     }).then(function (response) {
         console.log(response)
         //to avoid repeating city information on button click 
         $(".cityList").empty()
         $("#days").empty()
-        var cityMain1 = $("<div col-12>").append($("<h1>" + response.name + "</h1>"));
-        var image = $('<img class="imgsize">').attr('src', 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png');
-        var degreeMain = $('<p>').text('Temperature : ' + response.main.temp + ' °F ');
+        var celcius = convertToC(response.main.temp);
+        var cityMain1 = $("<div col-12>").append($("<p><h2>" + response.name + ' (' + currentDate + ')' + "</h2><p>"));
+        var image = $('<img class="imgsize">').attr('src', 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png');        
+        var degreeMain = $('<p>').text('Temperature : ' + response.main.temp + ' °F (' + celcius + '°C)');
         var humidityMain = $('<p>').text('Humidity : ' + response.main.humidity + '%');
         var windMain = $('<p>').text('Wind Speed : ' + response.wind.speed + 'MPH');       
         var uvIndexcoord = '&lat=' + response.coord.lat + '&lon=' + response.coord.lon;
@@ -90,11 +103,12 @@ function displayForecast(c) {
         for (var i = 0; i < arrayList.length; i++) {
             if (arrayList[i].dt_txt.split(' ')[1] === '12:00:00') {
                 console.log(arrayList[i]);
+                var celcius = convertToC(arrayList[i].main.temp);//converting F to Celsius 
                 var cityMain = $('<div>');
                 cityMain.addClass('col forecast bg-primary text-white ml-3 mb-3 rounded>');
                 var date5 = $("<h5>").text(response.list[i].dt_txt.split(" ")[0]);
                 var image = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + arrayList[i].weather[0].icon + '.png');
-                var degreeMain = $('<p>').text('Temp : ' + arrayList[i].main.temp + ' °F ');
+                var degreeMain = $('<p>').text('Temp : ' + arrayList[i].main.temp + ' °F ('+ celcius + '°C)');               
                 var humidityMain = $('<p>').text('Humidity : ' + arrayList[i].main.humidity + '%');
                 var windMain = $('<p>').text('Wind Speed : ' + arrayList[i].wind.speed + 'MPH');                
                 cityMain.append(date5).append(image).append(degreeMain).append(humidityMain).append(windMain);
