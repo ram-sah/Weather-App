@@ -51,21 +51,20 @@ function getWeather(q) {
         //to avoid repeating city information on button click 
         $(".cityList").empty()
         $("#days").empty()
-        var cityMain = $("<div col-12>").append($("<h1>" + response.name + "</h1>"));
+        var cityMain1 = $("<div col-12>").append($("<h1>" + response.name + "</h1>"));
         var image = $('<img class="imgsize">').attr('src', 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png');
         var degreeMain = $('<p>').text('Temperature : ' + response.main.temp + ' °F ');
         var humidityMain = $('<p>').text('Humidity : ' + response.main.humidity + '%');
-        var windMain = $('<p>').text('Wind Speed : ' + response.wind.speed + 'MPH');
-        var iconMain = $('<p>').attr('src', 'https://openweathermap.org/img/wn/' + response.weather[0].icon + '@2x.png');
+        var windMain = $('<p>').text('Wind Speed : ' + response.wind.speed + 'MPH');       
         var uvIndexcoord = '&lat=' + response.coord.lat + '&lon=' + response.coord.lon;
         var cityId = response.id;
 
         displayUVindex(uvIndexcoord);
         displayForecast(cityId);
 
-        cityMain.append(image).append(degreeMain).append(humidityMain).append(windMain).append(iconMain);
+        cityMain1.append(image).append(degreeMain).append(humidityMain).append(windMain);
         $('#cityList').empty();
-        $('#cityList').append(cityMain);
+        $('#cityList').append(cityMain1);
     });
 }
 //function for UV Index
@@ -74,8 +73,10 @@ function displayUVindex(uv) {
         url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + uv,
         method: "GET"
     }).then(function (response) {
-        var uvIndexMain = $("<p>").text('UV-Index : ' + response.value);
-        $("#cityList").append(uvIndexMain);
+        var UVIndex = $("<p><span>");
+        UVIndex.attr("class", "badge badge-danger");
+        UVIndex.text(response.value);
+        $("#cityList").append('UV-Index : ').append(UVIndex);       
     });
 }
 //function to Display 5 Day forecast
@@ -93,11 +94,9 @@ function displayForecast(c) {
                 cityMain.addClass('col forecast bg-primary text-white ml-3 mb-3 rounded>');
                 var date5 = $("<h5>").text(response.list[i].dt_txt.split(" ")[0]);
                 var image = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + arrayList[i].weather[0].icon + '.png');
-                var degreeMain = $('<p>').text('Temperature : ' + arrayList[i].main.temp + ' °F ');
+                var degreeMain = $('<p>').text('Temp : ' + arrayList[i].main.temp + ' °F ');
                 var humidityMain = $('<p>').text('Humidity : ' + arrayList[i].main.humidity + '%');
-                var windMain = $('<p>').text('Wind Speed : ' + arrayList[i].wind.speed + 'MPH');
-                // var iconMain = $('<p>').attr('src', 'https://openweathermap.org/img/wn/' +
-                //     arrayList[i].weather[0].icon + '@2x.png');
+                var windMain = $('<p>').text('Wind Speed : ' + arrayList[i].wind.speed + 'MPH');                
                 cityMain.append(date5).append(image).append(degreeMain).append(humidityMain).append(windMain);
                 $('#days').append(cityMain);
             }
