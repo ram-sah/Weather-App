@@ -45,6 +45,12 @@ body{
     border-top-color: #856404;  
     border-top-width: 5px;
     text-align: center; 
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+ 
+    
   }
 /* footer text */
   .footer-text{
