@@ -1,6 +1,11 @@
 
 # Server-Side APIs: Weather Dashboard
-* By: Ram Sah - https://ram-sah.github.io/Weather-Dashboard
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![LanguageCount](https://img.shields.io/github/languages/count/ram-sah/Weather-Dashboard)](https://github.com/ram-sah/Weather-Dashboard)
+[![License](https://img.shields.io/github/repo-size/ram-sah/Weather-Dashboard?logo=gitHub)](https://github.com/ram-sah/Weather-Dashboard)
+
+## Description:
 
 Welcome to your personal Weather Dashboard that will give you weather for your desired location. Once you search for a location, it will save your previous searches as easy to click buttons. Use these buttons to view the weather for the selected city. You will always be presented with the last city you typed in the search box when you revisit the page.
 
