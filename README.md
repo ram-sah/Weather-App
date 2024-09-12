@@ -11,13 +11,13 @@ Welcome to your personal Weather Dashboard that will give you weather for your d
 
 Used [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. Also Used `localStorage` to store any persistent data.
 
-         
+
 ## Table of Contents
-       
+
 * [Pseudocode](#Pseudocode)
-            
+
 * [Tech-Features-Used](#Tech-Features-Used)
-            
+
 * [Questions](#Questions)
 
 * [Demo](#Application-Demo)
@@ -39,34 +39,32 @@ Used [OpenWeather API](https://openweathermap.org/api) to retrieve weather data 
 * Font Awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 * Current Location: https://freegeoip.app/json/
 * An event listener for the search buttons and save to local storage
-* Event listeners 
+* Event listeners
 * Ajax
 * script.js
 * Index.html
 * Styles.css
 
 ### This project features responsive design using a Bootstrap layout Has responsive layout for:
-* Small devices (landscape phones, 320px and up)  
-* Large devices (desktops, 992px and up) 
+* Small devices (landscape phones, 320px and up)
+* Large devices (desktops, 992px and up)
 
 * To Execute File: Open in browser
 
 ### Code Validation:
 * These use W3C Code Validators for HTML and CSS
-* esprima Syntax Validator 
+* esprima Syntax Validator
 
 
 ## Questions
-            
+
 <img src="https://github.com/ram-sah.png" alt="avatar" style="border-radius: 50px" width="100" />
 
-[![Author: Ram](https://img.shields.io/badge/Author-RamSah-red.svg)](https://github.com/ram-sah)  
-       
+[![Author: Ram](https://img.shields.io/badge/Author-RamSah-red.svg)](https://github.com/ram-sah)
+
 If you have any questions please contact me at : rsah1@asu.edu
-### GitHub Prifile: [ram-sah](https://github.com/ram-sah) 
+### GitHub Prifile: [ram-sah](https://github.com/ram-sah)
 ### Repository : [Weather-Dashboard](https://github.com/ram-sah/Weather-Dashboard)
 
 # Demo
 ![weather-dashboard](https://user-images.githubusercontent.com/64625123/86528091-f8ec3400-be72-11ea-9b88-2304d9e89adc.gif)
-
-
