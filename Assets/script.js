@@ -1,15 +1,13 @@
 $(window).on("load", function () {
   currentLocation();
   checkLocalStorage();
-  startUpdatingTime()
+  startUpdatingTime();
 });
 // API Key for all weather data
 var APIKey = "09e0d7e534e41ce68ba5f2577fa5f760";
 var q = "";
 var now = moment();
 //Date and time formate for header
-// var currentDate = now.format("MMMM Do YYYY || h:mm:ss a");
-// $("#currentDay").text(currentDate);
 
 function startUpdatingTime() {
   // Use moment to get the current time and format it
@@ -36,6 +34,8 @@ $("#search-button").on("click", function (event) {
   }
   getWeather(q);
   saveToLocalStorage(q);
+
+  $("#city-input").val(""); // Add this line to clear the input field
 
   // Check if checkLocalStorage() has already been called
   if (!hasCheckedLocalStorage) {
