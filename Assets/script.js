@@ -9,7 +9,7 @@ var q = "";
 var now = moment();
 //Date and time formate for header
 
-function startUpdatingTime() {
+function startUpdatingTime(i) {
   // Use moment to get the current time and format it
   setInterval(function () {
       // Get the current date and time including seconds
@@ -39,6 +39,7 @@ $("#search-button").on("click", function (event) {
 
   // Check if checkLocalStorage() has already been called
   if (!hasCheckedLocalStorage) {
+    $("#historyList").empty();
     checkLocalStorage();
     // Set the flag to true so it won't be called again
     hasCheckedLocalStorage = true;
